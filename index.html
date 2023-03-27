@@ -18,7 +18,7 @@
   		
 			/*function to create string*/
           this.writeLesson = function (){
-          	var str = "This lesson is a " + this.type + " " + "and is in the" + " " + this.unit + " unit. It covers the following standard-" + " " + this.standard + " and has a DOK of " + this.dok + " ." + " <br><br><img src='images/smore.jpg' width='25%'>";
+          	var str = "This lesson is a " + this.type + " " + "and is in the" + " " + this.unit + " unit. It covers the following standard-" + " " + this.standard + " and has a DOK of " + this.dok + " ." + " <br><br>";
                   writeText(str, "lessons");                                             
    							    }
 		}   
@@ -27,7 +27,40 @@
   		function writeText(txt, destination){
    			document.getElementById(destination).innerHTML=txt;
    		} 
-				
+			/*functions to display images*/
+		function displaySmore() {
+  			var x = document.getElementById("smore");
+  			if (x.style.display === "none") {
+   			 x.style.display = "block";
+  			} else {
+    			x.style.display = "none";
+  			}
+		}
+		function displayAtom() {
+  			var x = document.getElementById("atomgig");
+  			if (x.style.display === "none") {
+			x.style.display = "block";
+  			} else {
+    			x.style.display = "none";
+				}
+			}
+		function displayScuba() {
+  			var x = document.getElementById("scuba");
+  			if (x.style.display === "none") {
+    		x.style.display = "block";
+  			} else {
+    			x.style.display = "none";
+  			}
+		}
+		function displayHess() {
+  			var x = document.getElementById("hess");
+  			if (x.style.display === "none") {
+    		x.style.display = "block";
+  			} else {
+    			x.style.display = "none";
+  			}
+		}
+		
 		 /* lesoon variables */
        	var Lesson1 = new mylesson("lab","4","stoichiometry","SC.912.P.10");
 	  	var Lesson2 = new mylesson("cooperative work","3","atoms","SC.912.P.8");
@@ -48,10 +81,10 @@
 	<center>
 		<h2 style="color:white;">Select a unit below to learn about the lesson.</h2>
   			
-   		<input type="button" value = "Stoichiometry" onclick= "Lesson1.writeLesson()" name="write lesson1"/>
-		<input type="button" value = "Atoms" onclick= "Lesson2.writeLesson();" name="write lesson2"/>
-		<input type="button" value = "Gas laws" onclick= "Lesson3.writeLesson();" name="write lesson3"/>
-		<input type="button" value = "Thermochemistry" onclick= "Lesson4.writeLesson();" name="write lesson4"/>
+   		<input type="button" value = "Stoichiometry" onclick= "Lesson1.writeLesson(); displaySmore()" name="write lesson1"/>
+		<input type="button" value = "Atoms" onclick= "Lesson2.writeLesson(); displayAtom()" name="write lesson2"/>
+		<input type="button" value = "Gas laws" onclick= "Lesson3.writeLesson();displayScuba() " name="write lesson3"/>
+		<input type="button" value = "Thermochemistry" onclick= "Lesson4.writeLesson();displayHess() " name="write lesson4"/>
 
    		<!--display lesson info-->
     	<h2 id="lessons" style="color:white;"></h2>
@@ -60,6 +93,11 @@
     <center>
 		<!--display lesson image-->
    		<p id="images"></p>
+		<img src = "images/smore.jpg" id ="smore" style="display:none;">
+		<img src = "images/atom.gif" id ="atomgig" style="display:none;" >
+		<img src = "images/scuba.jpg" id="scuba" style="display:none;">
+		<img src = "images/smore.jpg" id="hess" style="display:none;">
+		<br><br>
   	</center>
  
 <!--this is the footer-->
@@ -68,4 +106,3 @@
   	</div>
 </body>
 </html>
-
