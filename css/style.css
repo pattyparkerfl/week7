@@ -18,14 +18,7 @@ body {
   background-color:#114aa6;
 }
 
-/* image styling */
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
-	padding-bottom: 5%;
-}
+
 input[type=button], input[type=submit], input[type=reset]
 {
   background-color: #1195A6; /* Green */
