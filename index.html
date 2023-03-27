@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chemistry Lessons Info</title>
-</head>
 
 	<!--js defining 4 lesson variables, properties (type, dok, unit, and standard), and methods to display lesson info --> 
 	<script>
@@ -16,48 +15,46 @@
 			this.dok = dok; 
 			this.unit = unit; 
 			this.standard = standard; 
-  		}
-
-		/*functions to write lessons*/
-		function Lesson1() {
-			var Lesson1 = new mylesson("lab","4","stoichiometry","SC.912.P.10")
-				document.getElementById("lessons").innerHTML = "This lesson is a " + Lesson1.type + " " + "and is in the" + " " + Lesson1.unit + " unit. It covers the following standard-" + " " + Lesson1.standard + " and has a DOK of " + Lesson1.dok + " ." + " <br><br><img src='images/smore.jpg' width='25%'>";
-		}
-	
-		function Lesson2() {
-			var Lesson2 = new mylesson("cooperative work","3","atoms","SC.912.P.8")
-				document.getElementById("lessons").innerHTML = "This lesson is a " + Lesson2.type + " " + "and is in the" + " " + Lesson2.unit + " unit. It covers the following standard-" + " " + Lesson2.standard + " and has a DOK of " + Lesson2.dok + " ." + "<br><br><img src='images/atom.gif' width='25%'>";
-		}
+  		
+			/*function to create string*/
+          this.writeLesson = function (){
+          	var str = "This lesson is a " + this.type + " " + "and is in the" + " " + this.unit + " unit. It covers the following standard-" + " " + this.standard + " and has a DOK of " + this.dok + " ." + " <br><br><img src='images/smore.jpg' width='25%'>";
+                  writeText(str, "lessons");                                             
+   							    }
+		}   
 		
-		function Lesson3() {
-			var Lesson3 = new mylesson("sub plan","2","gas laws","SC.912.L.17")
-				document.getElementById("lessons").innerHTML = "This lesson is a " + Lesson3.type + " " + "and is in the" + " " + Lesson3.unit + " unit. It covers the following standard-" + " " + Lesson3.standard + " and has a DOK of " + Lesson3.dok + " ." + "<br><br><img src='images/scuba.jpg' width='25%'>";
-		}
-		
-		function Lesson4() {
-			var Lesson4 = new mylesson("practice","3","thermochemistry","SC.912.L.14.6")
-				document.getElementById("lessons").innerHTML = "This lesson is a " + Lesson4.type + " " + "and is in the" + " " + Lesson4.unit + " unit. It covers the following standard-" + " " + Lesson4.standard + " and has a DOK of " + Lesson4.dok + " ." + "<br><br><img src='images/hess.jpg' width='25%'>";
-		}
-	</script>
+        /* function to write text out  to hmtl object */
+  		function writeText(txt, destination){
+   			document.getElementById(destination).innerHTML=txt;
+   		} 
+				
+		 /* lesoon variables */
+       	var Lesson1 = new mylesson("lab","4","stoichiometry","SC.912.P.10");
+	  	var Lesson2 = new mylesson("cooperative work","3","atoms","SC.912.P.8");
+		var Lesson3 = new mylesson("sub plan","2","gas laws","SC.912.L.17");
+		var Lesson4 = new mylesson("practice","3","thermochemistry","SC.912.L.14.6");
+      
+  </script>
+</head>
 
- <body>
-  
+<body>
 	<!--this is the top banner...logo and navigation-->
 	<div class="topnav">
 		<img src = "images/logo1.jpg" width="5%" align ="left">
 		<h1> FEATURED TEACHER RESOURCES</h1>
 	</div>
-   
- 	<!--buttons to get lesson info-->
-  	<center>
- 		<h2 style="color:white;">Select a unit below to learn about the lesson.</h2>
-  			<input type="button" onclick= "Lesson1()" value="Stoichiometry"><br><br>
-  			<input type="button" onclick= "Lesson2()" value="Atoms"><br><br>
-  			<input type="button" onclick= "Lesson3()" value="Gas Laws"><br><br>
-  			<input type="button" onclick= "Lesson4()" value="Thermochemistry"><br><br>
-  
-	<!--display lesson info-->
-    <h2 id="lessons" style="color:white;"></h2>
+	
+	<!--buttons to get lessoninfo-->
+	<center>
+		<h2 style="color:white;">Select a unit below to learn about the lesson.</h2>
+  			
+   		<input type="button" value = "Stoichiometry" onclick= "Lesson1.writeLesson()" name="write lesson1"/>
+		<input type="button" value = "Atoms" onclick= "Lesson2.writeLesson();" name="write lesson2"/>
+		<input type="button" value = "Gas laws" onclick= "Lesson3.writeLesson();" name="write lesson3"/>
+		<input type="button" value = "Thermochemistry" onclick= "Lesson4.writeLesson();" name="write lesson4"/>
+
+   		<!--display lesson info-->
+    	<h2 id="lessons" style="color:white;"></h2>
  	</center><br>
 
     <center>
@@ -71,5 +68,4 @@
   	</div>
 </body>
 </html>
-
 
